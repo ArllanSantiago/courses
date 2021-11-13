@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'repo-client'`, () => {
+  it(`should have as title 'repo-learning-angular'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('repo-client');
+    expect(app.title).toEqual('repo-learning-angular');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('repo-client app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('repo-learning-angular app is running!');
   });
 });

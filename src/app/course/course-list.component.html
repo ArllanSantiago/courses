@@ -1,3 +1,4 @@
+<router-outlet></router-outlet>
 <div class="container">
     <h2>Courses</h2>  
     <div class="form-group row">
@@ -26,10 +27,17 @@
                 <td>{{course.code | lowercase | replace: '-': '*'}}</td>
                 <td>{{course.releaseDate | date:'dd/MM/yyyy'}}</td>
                 <td> <app-star [rating]= 'course.rating'></app-star></td>
-                <td><input readonly [ngModel]="course.releaseDate | date:'dd/MM/yyyy'"></td>
+                <td> <div class="form-group row">
+                    <button (click)="delete(course.id)" class="col-sm-4 m-1 btn btn-danger">Delete</button>
+                    <a [routerLink]="['info',course.id,'edit']" class="col-sm-4 m-1 btn btn-primary">Edit</a>                                       
+                </div>                     
+                </td>
             </tr>
-        </tbody>
-        
+        </tbody>        
     </table>
+    <div class="d-flex flex-row-reverse pt-4">
+        <a [routerLink]="['info','add',-1]" class="col-sm-3 m-1 btn btn-success">New Course</a>
+    </div>
+    
 </div>
 

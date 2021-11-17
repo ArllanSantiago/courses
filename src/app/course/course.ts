@@ -2,7 +2,7 @@ import { core } from "@angular/compiler";
 
 export class Course {
     constructor(_course:Course = {
-        id: 0
+        id: -1
         , price: 0.00
         , code: ""
         , name: ""

@@ -1,0 +1,60 @@
+<div class="container">
+    <p class="display-6">{{option == 'edit'? 'Editing Course': option == 'add'?'Adding Course':''}} </p>
+    <hr>
+    <form #courseForm="ngForm">
+        <div class="form-group row mt-4">
+            <label class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input [(ngModel)]='course.name' required name="name" #courseName='ngModel' class="form-control" 
+                [ngClass]="{'is-invalid': courseName.invalid}">
+                <div class="invalid-feedback">
+                    Invalid Value
+                </div>
+            </div>
+        </div>
+        <div class="form-group row mt-2">
+            <label class="col-sm-2 col-form-label">Price</label>
+            <div class="col-sm-10">
+                <input [(ngModel)]='course.price' required name="price" #coursePrice='ngModel' class="form-control" 
+                [ngClass]="{'is-invalid': coursePrice.invalid}">
+                <div class="invalid-feedback">
+                    Invalid Value
+                </div>
+            </div>
+        </div>
+        <div class="form-group row mt-2">
+            <label class="col-sm-2 col-form-label">Code</label>
+            <div class="col-sm-10">
+                <input [(ngModel)]='course.code' required name="code" #courseCode='ngModel' class="form-control" 
+                [ngClass]="{'is-invalid': courseCode.invalid}">
+                <div class="invalid-feedback">
+                    Invalid Value
+                </div>
+            </div>
+        </div>
+        <div class="form-group row mt-2">
+            <label class="col-sm-2 col-form-label">Duration</label>
+            <div class="col-sm-10">
+                <input [(ngModel)]='course.duration' required name="duration" #courseDuration='ngModel' class="form-control" 
+                [ngClass]="{'is-invalid':courseDuration.invalid}">
+                <div class="invalid-feedback">
+                    Invalid Value
+                </div>
+            </div>
+        </div>
+        <div class="form-group row mt-2">
+            <label class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+                <textarea [(ngModel)]='course.description' required name="description" #courseDescription='ngModel' class="form-control" 
+                cols="30" rows="10" [ngClass]="{'is-invalid':courseDescription.invalid}"></textarea>                
+                <div class="invalid-feedback">
+                    Invalid Value
+                </div>    
+            </div>
+        </div>  
+        <div class="d-flex flex-row-reverse pt-4">
+            <button class="btn btn-success  m-1" (click)="save()">save</button>
+            <a [routerLink]="['../../..']" class="btn btn-secondary m-1">cancel</a>
+        </div>  
+    </form>
+</div>

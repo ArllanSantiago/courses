@@ -5,7 +5,6 @@ import { CourseService } from './course.service';
 
 
 @Component({
-  selector: 'app-course-list',
   templateUrl: './course-list.component.html'
 })
 export class CourseListComponent implements OnInit {
@@ -14,6 +13,10 @@ export class CourseListComponent implements OnInit {
   _courses:Course[] = [];
   _filteredCourses:Course[] = [];
   _filterBy: string = "";
+  delete(id:number){
+    this.courseServ.delete(id)
+    this.ngOnInit()
+  }
   ngOnInit(): void {
     this._courses = this.courseServ.retrieveAll()
     this._filteredCourses = this._courses

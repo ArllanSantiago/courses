@@ -8,6 +8,24 @@ export  class CourseService{
     retrieveAll(): Course[]{
         return COURSES
     }
+    retrieveById(_id:number):Course | undefined{
+        return COURSES.find((c:Course) => c.id === _id);
+    }
+    courseIndex(course:Course): number{
+        return COURSES.findIndex((c:Course)=> c.id == course.id)
+    }
+    save(course:Course){                
+        if (course.id > -1){
+            COURSES[this.courseIndex(course)] = course            
+        }else{            
+            course.id = COURSES.length> 0? COURSES.map(c => c.id).reduce((a,b)=> Math.max(a,b)): 0
+            COURSES.push(course)
+        }
+    }
+
+    delete(_id: number){
+       COURSES = COURSES.filter(c => c.id != _id) 
+    }
 }
 var _id:number = 1
 var COURSES:Course[] =[

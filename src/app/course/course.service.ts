@@ -16,13 +16,18 @@ export  class CourseService{
     }
     save(course:Course){                
         if (course.id > -1){
-            COURSES[this.courseIndex(course)] = course            
+            this.edit(course)          
         }else{            
-            course.id = COURSES.length> 0? COURSES.map(c => c.id).reduce((a,b)=> Math.max(a,b)): 0
-            COURSES.push(course)
+            this.add(course)
         }
     }
-
+    edit(course:Course){
+        COURSES[this.courseIndex(course)] = course  
+    }
+    add(course:Course){
+        course.id = COURSES.length> 0? COURSES.map(c => c.id).reduce((a,b)=> Math.max(a,b)): 0
+        COURSES.push(course)  
+    }
     delete(_id: number){
        COURSES = COURSES.filter(c => c.id != _id) 
     }

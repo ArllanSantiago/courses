@@ -25,7 +25,7 @@ export  class CourseService{
         COURSES[this.courseIndex(course)] = course  
     }
     add(course:Course){
-        course.id = COURSES.length> 0? COURSES.map(c => c.id).reduce((a,b)=> Math.max(a,b)): 0
+        course.id = COURSES.length> 0? COURSES.map(c => c.id).reduce((a,b)=> Math.max(a,b))+1: 0
         COURSES.push(course)  
     }
     delete(_id: number){

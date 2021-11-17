@@ -12,7 +12,8 @@ export class CourseInfoComponente implements OnInit {
     option = <string>this.actRouter.snapshot.paramMap.get('option')
 
     save(){
-        this.courseServ.save(this.course)
+        this.courseServ.save(this.course);
+        document.getElementById('back')?.click()
     }
     ngOnInit(){         
         const _course = <Course>this.courseServ.retrieveById(+(<string>this.actRouter.snapshot.paramMap.get("id")))
